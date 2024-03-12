@@ -1,0 +1,263 @@
+kurs cz. 3
+
+CLIP PATH https://bennettfeely.com/clippy/
+
+clip-path: circle(50% at 50% 50%);
+		wielkosć ośX ośY
+
+background-image: linear-gradient(315deg, #fee2f8, #dcf8ef 74%);
+
+Wartości w deklaracji linear-gradient(315deg, #fee2f8, #dcf8ef 74%) określają kierunek gradientu oraz kolory używane w tym gradientowym tle.
+
+315deg: Jest to kąt, pod którym zostanie utworzony gradient. W tym przypadku 315 stopni oznacza, że gradient będzie skierowany od lewego dolnego rogu w kierunku prawego górnego rogu, zgodnie z ruchem wskazówek zegara na klasycznym układzie współrzędnych. Kąt ten mierzy się w stopniach od kierunku "0deg", który jest wzdłuż osi poziomej (w prawo).
+
+#fee2f8: Jest to pierwszy kolor używany w gradientzie, tutaj jest to kolor fioletowy reprezentowany przez wartość heksadecymalną #fee2f8.
+
+#dcf8ef: Jest to drugi kolor używany w gradientzie, tutaj jest to kolor zielony reprezentowany przez wartość heksadecymalną #dcf8ef.
+
+74%: Określa punkt, w którym zmiana koloru ma nastąpić. W tym przypadku 74% oznacza, że zmiana koloru będzie miała miejsce na wysokości 74% długości gradientu. Często używa się wartości procentowych, aby określić, gdzie powinna wystąpić zmiana koloru, ale można również użyć wartości pikseli lub innych jednostek długości.
+
+jak chcemy wyznaczyć konkretne miejsce elementu to możemy zrobić kontener dla tego miejsca 
+
+.text {
+	position: absolute;
+	top: 111px;
+	left: 100px;
+	width: 260px;
+	height: 80px;
+	font-size: 36px;
+	color: #ffffff;
+	text-shadow: 2px 2px 5px #000;
+	overflow: hidden;
+}
+
+.text::before {
+	display: block;
+	position: absolute;
+	top: -60px;
+	left: 0;
+	content: '01/01/2000';
+	animation: slide-text 1s 3s forwards;
+}
+
+
+@keyframes slide-text {
+	from {
+		top: -60px;
+	}
+
+	to {
+		top: 10px;
+	}
+}
+
+w tym wypadku text to kontener który znajduje sie w innym kontenerze i poprzez wyznaczenie top i left mamy kontrolę nad tym gdzie pojawi się nasz ::before
+
+jesli chcemy aby tekst pojawił się w innym miejscu musimy przeniesc kontener
+
+
+:focus w CSS to pseudoklasa, która jest używana do stylizacji elementu, który aktualnie ma fokus, czyli jest aktywny w momencie, gdy użytkownik interaktywnie wchodzi w interakcję z elementem na stronie internetowej. Na przykład, gdy użytkownik kliknie na pole formularza, to pole to nabiera fokusu, a za pomocą pseudoklasy :focus możemy zdefiniować różne style dla tego aktywnego stanu. Możemy na przykład zmienić kolor obramowania, tło czy rozmiar czcionki. Jest to przydatne w poprawie użyteczności i dostępności strony internetowej, ponieważ wskazuje użytkownikowi, który element formularza aktualnie jest aktywny.
+
+git
+jak mamy klasę w której są spany które pozycjonujemy absolutnie to musimy tej klasie nadać wymiary żeby było widac te spany 
+
+
+
+FORMULARZ 
+
+Element <input> w języku HTML jest używany do tworzenia formularzy, które pozwalają użytkownikom wprowadzać dane. Może przyjmować różne typy, takie jak tekstowe, liczbowe, daty, adresy email, hasła itp. Oto przykład wykorzystania elementu <input>:
+
+
+<label for="username">Username:</label>
+<input type="text" id="username" name="username" placeholder="Enter your username">
+
+W tym przykładzie tworzymy pole do wprowadzania nazwy użytkownika. Atrybut type określa rodzaj pola, a atrybut placeholder wyświetla komunikat pomocniczy dla użytkownika.
+
+input:focus {
+	outline: none;
+	border: 2px solid rgb(92,92,251);
+}
+
+- nie można zostawić outline: none bo jest to utrudnienie dla osób niepełnosprawnych trzeba dodać inny border
+
+GIT
+
+git --version - by sprawdzić czy działa poprawnie, jeśli wyświetla sie numer wersji to jest git
+
+ls - wyświetla sie lista elementów miejsca w którym się znajdujemy 
+
+clear - czyścimy gita
+
+pwd - info w jakim folderze sie znajdujemy 
+
+Jak dojść do konkretnego folderu znajdującego się w desktop? 
+
+1. cd - change directory 
+
+cd Desktop - znajdziemy się w Desktop (pulpit)
+
+cd + nazwa folderu na Desktop do którego chcemy się dostać - gdy nazwa jest długa i ma w sobie spacje to musimy dodać cudzysłów np. cd "kurs 3"
+
+shift + insert - gdy chcemy coś wkleić w git 
+
+gdy chcemy się cofnąć do Desktop to dajemy "cd .."
+
+2. cd "Desktop/nazwa folderu" 
+3. Otworzyć folder po czym w folderze prawym przyciskiem myszy wybrać "Git bash here" i wtedy otworzy się Git Bash z otwartą ścieżką do tego folderu
+4. W Visual Studio Code jest opcja "Terminal" i wybierasz który folder otworzyć w termianlu. Na samym dole VSC otowrzy się terminal.
+
+Tworzenie folderu - mkdir nazwa folderu 
+Tworzenie pliku - touch nazwa pliku np. touch plik.txt, index.html
+
+Do czego służy Git? 
+
+Master, Main - główna linia wersji naszej pracy 
+
+Branch - linia boczna, wszelkie zmiany na którejś z wersji zrobione przz kogoś innego, dopóki nie będą nie zrobimy push na maina na ostatnią wersje to nie będą widoczne 
+
+Tworzenie repozytorium 
+
+W git bash w VSC: 
+
+git init - powstaje folder .git, powstaje nasze repozytorium 
+
+git status - sprawdzamy status plików w repozytorium 
+
+git add index.html - dodanie plików do repozytorium 
+git add . - kropka oznacza wszytskie pliki 
+
+git commit -m "krótki opis zmian które zrobiliśmy (po angielsku)"
+
+jak robimy zmiant w index.html to po sprawdzeniu git status bedzie pokazywało nam się modified: index.html i musimy go ponownie dodać do repozytorium poprzez git add index.htmli robimy commita 
+
+git log - dane autora + plus rozpiska wszystkich zdarzeń jakie zrobilśmy poprzez git commit
+
+po wpisanniu git log pokażą się commiity 
+
+$ git log
+commit f6af7ae7e481d7b5d1a56db4ed8410453aebff13 (HEAD ->
+ master)
+Author: Klaudia <klaudia.sobczak14@gmail.com>
+Date:   Wed Mar 6 18:46:43 2024 +0100
+
+    added h1
+
+commit a1c014d565ee25938f3e47ac9d79eb7af65e15d6
+Author: Klaudia Sobczak <klaudia.sobczak@avenga.com>    
+Date:   Tue Mar 5 18:54:52 2024 +0100
+
+    created site
+
+POWRÓT DO POPRZEDNIEGO COMMITA
+
+git checkout a1c014d565ee25938f3e47ac9d79eb7af65e15d6
+-wracamy do commita created site i ten added h1 znika
+
+Jak tworzyć branch? 
+
+git branch - sprawdza na jakim branchu jesteśmy oraz wypisuje wszystkie branche 
+
+git checkout -b newcolors - tworzymy branch, -b tworzy branch 
+git checkout newcolors - gdy chcemy przejść na branch newcolors
+
+git branch myidea - druga metoda dodania brancha tylko nas nie przenosi od razu na nowy branch
+
+git branch -M main - Zmiana nazwy aktualnej gałęzi: Opcja -M oznacza "move" (przeniesienie) i jest używana do zmiany nazwy bieżącej gałęzi. W przypadku polecenia git branch -M main, gałąź bieżąca zostanie przemianowana na "main". 
+
+Dodanie rzeczy na branch
+
+1. Wchodzimy na brancha na którego chcemy coś dodać
+git checkout myidea
+2. Dodajemy coś w pliku np. <h1>my idea</h1>
+		<p>to jest mój nowy pomysł</p>
+3. git add . 
+4. git commit -m "my new idea"
+
+Gdy jesteśmy na branchu to po wpisaniu git log wyświetlą się wszystkie commity które były na branchu i na master, a gdy jestesmy na masterze to wyświetlą się wszystkie commity z mastera a z brancha nie, bo nie wprowadziliśmy rzeczy z brancha na mastera 
+
+Jak połączyć branch z master? 
+
+git merge myidea - gdy jesteśmy na master wpisujemy te komende i wtedy branch łączy się z master i na masterze pojawią się rzeczy które dodaliśmy w branchu
+
+-gdy na branchu dodamy jakieś rzeczy i chcemy go z merdżowac z master który ma w tych linijkach jakieś inne rzeczy wpisane to wyświeti sie komunikat i możemy wybrać czy chcemy zastąpić, czy zostawić obie itd.
+
+Ogólnie komenda merge z automatu nadpisuje nowsze zmiany, natomiast okienko z opcjami do akceptacji wyświetli się w wypadku, gdy do nowych zmian chcemy wprowadzić starsze.
+
+Okienko nie wyświetli się, jeśli zmiany na branchu myideag nastąpiły po zmianach na branchu master.
+Git nie widzi wtedy konfliktu, więc z automatu nadpisze nowsze zmiany z branchu test.
+
+Usuwanie brancha
+
+git branch -d myidea
+gdy siedzimy na gałęi to nie możemy jej usunąć
+
+GITHUB, Gitlab - miejsce do przechowywanie repozytorium, kodu żeby inni mieli do nich wgląd
+
+HTTPS - rekomendowane 
+
+Wysłanie repozytorium na GIThuba 
+
+1. Tworzysz terminal w VSC (git init, git add ., git commit -m "") 
+2. Create repository w github.com 
+3. Łączymy się za pomocą HTTPS, mamy stworzone repozytorium w VSC, więc kopiujemy dwie linijki z "...or push an existing repository from the command line" 
+4. W okienku, które wyskoczy logujesz się do Githuba zeby zautoryzować że jesteś właściwą osobą zaglądającą do tego repozytorium 
+5. Odświeżam stronę Github - pokazują się commity 
+6. W Your repositories pojawiło się nowe repozytorium 
+7. Po każdym commit trzeba wypuszować - git push -u origin main i wtedy pokaże się wszytsko w Github 
+
+ORIGIN 
+
+git remote -v
+wyskoczy informacja origin i link do githuba, gdy wypuszujemy na inne repozytorium to pojawią się też linki do innych repo z innymi nazwami 
+
+gdy chcemy wypuszować na inne repozytorium to:
+
+1. Tworzymy nowe repozytorium 
+2. Wbijamy dwa linki z nowego repozytorium do VSC, ale musimy w nich zmienić origin na inny wyraz ponieważ oryginalne repo jest inne np. 
+
+git remote add chomik https://github.com/klaudia1404/test.git
+git push -u chomik main
+
+Przydaje sie to kiedy pracujesz na różnych repo
+
+README.md - jest to zostawiać opis użytkownikiem co mogą robić z naszym repo
+
+Plik README jest powszechnie stosowany w projektach informatycznych i repozytoriach kodu źródłowego. Ma on na celu zapewnienie podstawowych informacji o projekcie oraz jego użyciu i instalacji. Plik README jest często pierwszym punktem, który użytkownicy lub współpracownicy sprawdzają, aby dowiedzieć się więcej o projekcie. Oto kilka powodów, dla których plik README jest ważny:
+
+1. Dokumentacja projektu: README zawiera opis projektu, jego celu i zakresu. Jest to miejsce, gdzie twórca projektu może przedstawić ogólne informacje o projekcie, aby użytkownicy mogli szybko zrozumieć, czym projekt się zajmuje.
+
+2. Instrukcje instalacji: README zawiera instrukcje dotyczące instalacji i konfiguracji projektu. Daje to użytkownikom jasne wskazówki, jak zacząć korzystać z projektu.
+
+3. Przykłady użycia: Często w pliku README znajdują się przykłady użycia lub krótkie tutoriale, które pokazują, jak korzystać z różnych funkcji projektu.
+
+4. Kontakt do autorów: W pliku README można znaleźć informacje kontaktowe do autorów projektu, co ułatwia użytkownikom zgłaszanie problemów lub udzielanie opinii.
+
+5. Licencja: README często zawiera informacje o licencji, na podstawie której udostępniany jest kod źródłowy projektu.
+
+Initialize this repository with a README - powstaje repozytorium z plikiem readme, możemy też stworzyć po prostu plik o nazwie readme.md
+
+Jak ostylować readme?
+
+Poradnik - https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
+# Cześć - nagłowek h1
+## To jest h2 
+**To jest tekst pogrybiony**
+[Github](link do Github) - widac tylko Github i jest to link 
+
+jak zrobimy coś w readme to też musimy wpisać git add ., git commit -m "added readme", git push -u origin main
+
+Nadawanie uprawnień innym użytkownikom
+
+repozytorium --> settings --> collaborators --> add people --> podajemy e-mail --> osoba dostaje maila
+
+
+
+
+
+ 
+
+
+
+  
+
